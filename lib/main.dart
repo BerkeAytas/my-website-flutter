@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        fontFamily: "Caveat",
         scaffoldBackgroundColor: const Color(0xFF191919),
         useMaterial3: true,
       ),
@@ -57,42 +58,65 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       child: Row(
         children: [
-          Expanded(child: SizedBox()),
+          Expanded(
+              child: Center(
+            child: SizedBox(
+              child: RotatedBox(
+                quarterTurns: 3,
+                child: AutoSizeText(
+                  "Mobile Developer",
+                  style: context.theme.textTheme.bodyLarge!
+                      .copyWith(color: Colors.white),
+                ),
+              ),
+            ),
+          )),
           Expanded(
               child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(child: SizedBox()),
+              const Expanded(child: SizedBox()),
               Expanded(
                 flex: 2,
                 child: AutoSizeText(
-                  "Hello\nBerke Aytaş\nMobile Developer",
+                  "Hello\nI am\nBerke Aytaş",
                   style: context.theme.textTheme.displayLarge!
                       .copyWith(color: Colors.white),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                      icon: FaIcon(FontAwesomeIcons.instagram),
-                      onPressed: () {
-                        print("Pressed");
-                      }),
-                  IconButton(
-                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                      icon: FaIcon(FontAwesomeIcons.linkedin),
-                      onPressed: () {
-                        print("Pressed");
-                      }),
-                  IconButton(
-                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
-                      icon: FaIcon(FontAwesomeIcons.medium),
-                      onPressed: () {
-                        print("Pressed");
-                      }),
-                ],
+              Padding(
+                padding: EdgeInsets.only(right: context.dynamicWidth(0.03)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                        icon: FaIcon(
+                          FontAwesomeIcons.instagram,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        }),
+                    SizedBox(width: 10),
+                    IconButton(
+                        icon: FaIcon(
+                          FontAwesomeIcons.linkedin,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        }),
+                    SizedBox(width: 10),
+                    IconButton(
+                        icon: FaIcon(
+                          FontAwesomeIcons.medium,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          print("Pressed");
+                        }),
+                  ],
+                ),
               )
             ],
           ))
