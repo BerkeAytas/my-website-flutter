@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:zerom/zerom.dart';
 
 void main() {
@@ -57,10 +59,42 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Expanded(child: SizedBox()),
           Expanded(
-              child: Text(
-            "Hello\nBerke Aytaş\nMobile Developer",
-            style: context.theme.textTheme.displayLarge!
-                .copyWith(color: Colors.white),
+              child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(child: SizedBox()),
+              Expanded(
+                flex: 2,
+                child: AutoSizeText(
+                  "Hello\nBerke Aytaş\nMobile Developer",
+                  style: context.theme.textTheme.displayLarge!
+                      .copyWith(color: Colors.white),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                      icon: FaIcon(FontAwesomeIcons.instagram),
+                      onPressed: () {
+                        print("Pressed");
+                      }),
+                  IconButton(
+                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                      icon: FaIcon(FontAwesomeIcons.linkedin),
+                      onPressed: () {
+                        print("Pressed");
+                      }),
+                  IconButton(
+                      // Use the FaIcon Widget + FontAwesomeIcons class for the IconData
+                      icon: FaIcon(FontAwesomeIcons.medium),
+                      onPressed: () {
+                        print("Pressed");
+                      }),
+                ],
+              )
+            ],
           ))
         ],
       ),
